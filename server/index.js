@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { login, register } from "./controllers/users.js";
+import userRoutes from "./routes/users.js";
 const app = express();
 // parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }))
@@ -15,8 +16,7 @@ app.get("/", (req, res) => {
 
 // ROUTES
 
-app.post("/register", register);
-app.post("/login", login)
+app.use("/auth", userRoutes);
 
 mongoose.connect(process.env.MONGO_URL , {
     useNewUrlParser : true,

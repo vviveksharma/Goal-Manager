@@ -1,5 +1,8 @@
-const router = require("express").Router();
+import express from "express";
+import { login, register } from "../controllers/users.js";
+const router = express.Router();
 
-router.get("/", async(req, res) => {
-    console.log("Hello World")
-})
+router.post("/login", login);
+router.post("/register", register);
+
+export default router;
