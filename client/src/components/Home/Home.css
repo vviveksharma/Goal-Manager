@@ -1,0 +1,25 @@
+.home {
+  padding-left: 170px;
+  padding-top: 350px;
+}
+
+.home h2 {
+  font-size: 64px;
+}
+
+.home button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.home button:hover {
+  background-color: #0056b3;
+}
