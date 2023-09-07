@@ -1,9 +1,11 @@
 import express from "express";
+import cors from 'cors';
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { login, register } from "./controllers/users.js";
 import userRoutes from "./routes/users.js";
 const app = express();
+app.use(cors());
 // parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }))
      
