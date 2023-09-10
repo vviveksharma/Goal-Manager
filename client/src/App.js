@@ -2,8 +2,10 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
-import Signup from "./components/signUp/signup";
+import { Signup } from "./components/signUp/signup";
 import Login from "./components/signUp/login";
+import Display from "./components/Display/display";
+
 function App() {
   return (
     <Router>
@@ -12,6 +14,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/register" element={<Signup/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/main" element={<Display/>} />
         </Routes>
       </div>
     </Router>
