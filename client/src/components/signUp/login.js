@@ -1,42 +1,56 @@
 import React from "react";
 import "./signup.css";
-import {useState, Redirect} from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const HandleSubmit = async(e) => {
+  let navigate = useNavigate();
+  const [data, setData] = useState({});
+  const [response, setResponse] = useState(null);
+  const HandleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password)
-    if (email !== "" && password !== "") {
-      <Redirect to={"/main"} />
+    const response = await axios.post("http://localhost:8000/auth/login", data);
+    console.log(response.data);
+    setResponse(response.data);
+    if (response.status === 200) {
+      navigate("/main");
     }
-  }
+  };
   return (
-    <div className="login-card">
-      <h1>Login</h1>
-      <form className="login-form" onSubmit={HandleSubmit}>
-        <div className="username">
-          <input
-            type="email"
-            className="control"
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-          ></input>
-          <div id="spinner" className="spinner"></div>
-        </div>
-        <div>
-          <input
-            placeholder="Password"
-            className="control"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <button className="control" type="submit">Log In</button>
-        </div>
-      </form>
+    <div className="register">
+      <div className="login-card">
+        <h1>Login</h1>
+        <form className="login-form" onSubmit={HandleSubmit}>
+          <div className="username">
+            <input
+              type="email"
+              className="control"
+              name="email"
+              onChange={(e) =>
+                setData({ ...data, [e.target.name]: e.target.value })
+              }
+              placeholder="Email"
+            ></input>
+            <div id="spinner" className="spinner"></div>
+          </div>
+          <div>
+            <input
+              placeholder="Password"
+              className="control"
+              name="password"
+              type="password"
+              onChange={(e) =>
+                setData({ ...data, [e.target.name]: e.target.value })
+              }
+            ></input>
+          </div>
+          <div>
+            <button className="control" type="submit">
+              Log In
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

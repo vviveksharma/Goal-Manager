@@ -7,12 +7,12 @@ html,
   height: 100%;
 }
 
-body {
+.register {
   display: grid;
   height: 100%;
   place-items: center;
   margin: 0;
-  font-family: "Euclid Circular A";
+  margin-top: 100px;
   color: #1b1e40;
   animation: rotate 5s infinite alternate linear;
 }

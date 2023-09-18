@@ -1,10 +1,14 @@
-import {useState } from "react";
+import { useState } from "react";
 import "./signup.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const strengthLabels = ["weak", "medium", "strong"];
 
 export const Signup = () => {
+  let navigate = useNavigate();
   const [strength, setStrength] = useState("");
-
+  const [data, setData] = useState([]);
+  const [response, setResponse] = useState(null);
   const getStrength = (password) => {
     console.log(password);
 
@@ -34,49 +38,67 @@ export const Signup = () => {
 
     setStrength(strengthLabels[strengthIndicator] ?? "");
   };
-
-  const handleChange = (event) =>
+  const handleRegister = async(e) => {
+    e.preventDefault();
+    const response = await axios.post("http://localhost:8000/auth/register", data);
+    console.log(response.data);
+    setResponse(response.data);
+    if (response.status === 200) {
+      navigate("/login");
+    }
+  };
+  const handleChange =  (event) => {
     getStrength(event.target.value);
+    setData({ ...data, [event.target.name]: event.target.value });
+  };
 
   return (
-    <div className="login-card">
-      <h2>Sign Up</h2>
-      <form className="login-form">
-      <input
-          name="Username"
-          spellCheck="false"
-          className="control"
-          type="password"
-          placeholder="UserName"
-          onChange={handleChange}
-        />
-        <div className="username">
+    <div className="register">
+      <div className="login-card">
+        <h2>Sign Up</h2>
+        <form className="login-form" onSubmit={handleRegister}>
           <input
-            autoComplete="off"
+            name="username"
             spellCheck="false"
             className="control"
-            type="email"
-            placeholder="Email"
+            type="text"
+            placeholder="UserName"
+            onChange={(e) =>
+              setData({ ...data, [e.target.name]: e.target.value })
+            }
           />
-          <div id="spinner" className="spinner"></div>
-        </div>
-        <input
-          name="password"
-          spellCheck="false"
-          className="control"
-          type="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
+          <div className="username">
+            <input
+              autoComplete="off"
+              spellCheck="false"
+              className="control"
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={(e) =>
+                setData({ ...data, [e.target.name]: e.target.value })
+              }
+            />
+            <div id="spinner" className="spinner"></div>
+          </div>
+          <input
+            name="password"
+            spellCheck="false"
+            className="control"
+            type="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
 
-        <div className={`bars ${strength}`}>
-          <div></div>
-        </div>
-        <div className="strength">{strength && <>{strength} password</>}</div>
-        <button className="control" type="button">
-          SIGN UP
-        </button>
-      </form>
+          <div className={`bars ${strength}`}>
+            <div></div>
+          </div>
+          <div className="strength">{strength && <>{strength} password</>}</div>
+          <button className="control" type="submit">
+            SIGN UP
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
