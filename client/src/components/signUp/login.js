@@ -7,12 +7,23 @@ const Login = () => {
   let navigate = useNavigate();
   const [data, setData] = useState({});
   const [response, setResponse] = useState(null);
+
+  const verify = async(e, token) => {
+    e.preventDefault();
+    const verify = await axios.post("http://localhost:8000/auth/verify-token", token);
+    if (verify.status === 200) {
+      return true
+    } else {
+      return false;
+    }
+  }
+
   const HandleSubmit = async (e) => {
     e.preventDefault();
     const response = await axios.post("http://localhost:8000/auth/login", data);
     console.log(response.data);
     setResponse(response.data);
-    if (response.status === 200) {
+    if (verify) {
       navigate("/main");
     }
   };
