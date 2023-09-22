@@ -9,6 +9,10 @@ const Home = () => {
       <Link to={"/register"}>
         <button type="submit">Signup</button>
       </Link>
+      
+      <Link to={"/login"}>
+        <button type="submit">Login</button>
+      </Link>
     </div>
   );
 };
