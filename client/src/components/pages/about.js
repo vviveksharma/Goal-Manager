@@ -1,30 +1,45 @@
 import React from "react";
 import Sidebar from "../sidebar/sidebar";
 import myimage from "../../assets/target-icon.png";
+import { useEffect } from "react";
 import "./about.css";
+import { Link } from "react-router-dom";
 const About = () => {
+  useEffect(() => {
+    const currentUrl = window.location.pathname
+    localStorage.setItem("url", currentUrl)
+  },[])
   return (
     <div>
       <Sidebar />
-      <div className="about">
-        <h1>About Us</h1>
-      </div>
-      <div className="info">
-        <span>
-          Target Trek is the goal management app designed to managed the goals
-          specified in a single period of time. This give interactive UI that
-          helps you keep track of your goals over the period of time.
-        </span>
-        <span>1. Add new Goals as per your requirements</span>
-        <span>2. Reiew old goals that already there</span>
-        <span>** Special Feature see the Progress through your subtask created **</span>
-        <div  className="image-class" >
-          <img src={myimage} alt=""/>
+      <h1>About Us</h1>
+      <div className="container">
+        <div className="text">
+          <span>
+            The personlized goal management app designed to tackle your goals on
+            daily basis. With this go ahead and acheive all your goals.
+          </span>
+          <ul className="ul">
+            Features we provide are:- (Free Trial)
+            <li> Persoanlised dashboard</li>
+            <li> Goal Tracking and its subtask progress</li>
+            <li> Free Trial upto three goals</li>
+          </ul>
+          <ul className="ul">
+            Features we provide are:- (Premium)
+            <li> All the feature form the above</li>
+            <li> No goal tracking limit</li>
+          </ul>
+          <Link to={"/premium"}>
+            <button type="submit" className="button-about">
+              Buy Premium
+            </button>
+          </Link>
+        </div>
+        <div className="image">
+          <img src={myimage} alt="" />
         </div>
       </div>
-      {/* <div>
-        <img src={myimage} alt="" className="image-class" />
-      </div> */}
     </div>
   );
 };

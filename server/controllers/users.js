@@ -54,3 +54,10 @@ export const verifyToken = async(req, res) => {
     res.status(500).json({err: err.message})
   }
 }
+
+// Get User Details
+export const getUserDeatils = async(req, res) => {
+  const {username} = req.params
+  const user = await User.findOne({username:username})
+  res.status(200).json({user}) 
+}

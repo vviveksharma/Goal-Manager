@@ -1,17 +1,15 @@
-import React from 'react'
-import Sidebar from '../sidebar/sidebar'
-import "./contact.css"
+import React from "react";
+import Sidebar from "../sidebar/sidebar";
+import "./contact.css";
 const Contact = () => {
   return (
     <div>
-        <Sidebar />
-        <div className="contact">
-            Contact Us
-        </div>
-        <p>Please fill this form to get more insights for the product or get more information about the products.</p>
-        <div className='contact-form'>
-            <form>
-            <input
+      <Sidebar />
+      <div className="contact">Contact Us</div>
+      <p>We would love to hear from you.</p>
+      <div className="contact-form">
+        <form>
+          <input
             name="name"
             spellCheck="false"
             className="control"
@@ -26,17 +24,24 @@ const Contact = () => {
             placeholder="Email"
           />
           <input
-            name="query"
+            name="subject"
             spellCheck="false"
             className="control"
             type="text"
-            placeholder="Query"
+            placeholder="Subject"
           />
-          <button type="submit"> Submit</button>
-            </form>
-        </div>
+          <input
+            name="body"
+            spellCheck="false"
+            className="control-body"
+            type="text-box"
+            placeholder="Body"
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

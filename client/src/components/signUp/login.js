@@ -30,7 +30,7 @@ const Login = () => {
   return (
     <div className="register">
       <div className="login-card">
-        <h1>Login</h1>
+        <h1 className="login-h1">Login</h1>
         <form className="login-form" onSubmit={HandleSubmit}>
           <div className="username">
             <input

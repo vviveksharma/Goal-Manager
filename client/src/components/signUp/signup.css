@@ -32,6 +32,11 @@ button {
   transition: 0.4s;
 }
 
+.login-h1 {
+  font-size: 35px;
+  margin-top: 10px;
+}
+
 .login-card > h2 {
   font-size: 36px;
   font-weight: 600;

@@ -17,6 +17,15 @@ const UserSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    contactNo: {
+      type: String,
+      unique: true,
+    },
+    profileImage: {
+      type: Image,
+      unique: false,
+      default: "",
+    }
   },
   { timestamps: true }
 );

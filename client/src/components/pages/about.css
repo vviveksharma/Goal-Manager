@@ -1,32 +1,52 @@
-
-
-.about h1 {
-    font-size: 80px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.info span {
-    font-size: large;
-    padding-left: 45px;
-    margin-top: 10px;
-    padding-top: 35px;
-    width: 60%;
-    padding-right: 45px;
-    height: 60%;
-    display: flex;
-    justify-content: flex-start;
+h1 {
+  font-size: 80px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.info .image-class{
-    width: 20%;
-    height: 30%;
-    margin-left: auto;
-    margin-bottom: 120px;
-    position: sticky;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    right: 0;
+.text span {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.text {
+  flex: 1;
+  padding-right: 20px;
+  font-weight: bold;
+}
+
+.image {
+  flex: 0;
+}
+
+img {
+  width: auto;
+  height: auto;
+}
+
+.container .text ul {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 35px;
+}
+
+.container .text li {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 25px;
+}
+
+.button-about {
+  width: 150px;
+  margin-top: 10px;
+  margin-left: 20px;
 }

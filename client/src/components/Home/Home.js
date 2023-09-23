@@ -7,11 +7,11 @@ const Home = () => {
       <span>Manager app designed to checkup on your goals overtime</span>
       <h2>Goal Manager</h2>
       <Link to={"/register"}>
-        <button type="submit">Signup</button>
+        <button type="submit" className="display">Signup</button>
       </Link>
       
       <Link to={"/login"}>
-        <button type="submit">Login</button>
+        <button type="submit" className="display">Login</button>
       </Link>
     </div>
   );

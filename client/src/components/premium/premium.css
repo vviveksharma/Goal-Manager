@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300&family=Hind:wght@600;700&display=swap");
+.popup .info p {
+  font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+}
+.button-premium {
+  width: 10%;
+  background-color: #ddd0c8;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  padding-right: 100px;
+}
+
+.button-premium:hover {
+  background-color: #ddd0c8;
+}
+
+.popup .info .writer {
+  font-weight: light;
+  font-size: 20px;
+}
+
+.popup .info h1 {
+  font-size: 35px;
+  font-family: "Hind", sans-serif;
+}
+.pricing-cards {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.featured {
+  background-color: #f9fafc;
+  border: 3px solid black;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card-price {
+  font-size: 36px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.currency {
+  font-size: 18px;
+}
+
+.amount {
+  font-size: 48px;
+}
+
+.period {
+  font-size: 18px;
+}
+
+.card-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.card-features li {
+  margin-bottom: 10px;
+}
+
+.btn {
+  background-color: black;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.attribute {
+  position: absolute;
+  bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .pricing-cards {
+    flex-direction: column;
+  }
+}

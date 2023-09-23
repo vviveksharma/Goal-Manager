@@ -8,6 +8,7 @@ import Login from "./components/signUp/login";
 import Display from "./components/Display/display";
 import Error from "./components/signUp/error";
 import Contact from "./components/pages/contact";
+import Premium from "./components/premium/premium";
 function App() {
   return (
     <Router>
@@ -23,6 +24,8 @@ function App() {
           <Route path="/*" element={<Error/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/premium" element={<Premium/>} />
+
         </Routes>
       </div>
     </Router>
