@@ -6,10 +6,13 @@ function Premium() {
   const navigate = useNavigate();
   const [prevPage, setPrevPage] = useState("");
   useEffect(() => {
-    console.log(localStorage.getItem("url"));
     setPrevPage(localStorage.getItem("url"));
   }, []);
 
+  const handleNavigation = (price) => {
+    console.log(price);
+    navigate("/payment");
+  }
   const handlePrevPage = () => {
     navigate(prevPage);
   };
@@ -39,7 +42,7 @@ function Premium() {
             <li>Expert Guidence specific to goal</li>
             <li>Online Support from Team</li>
           </ul>
-          <button className="btn">Choose Plan</button>
+          <button className="btn" onClick={() => handleNavigation("This basic clicked")}>Choose Plan</button>
         </div>
 
         <div className="card featured">
@@ -54,10 +57,10 @@ function Premium() {
             <li>Expert online Session. (Weekend)</li>
             <li>24/7 Support from Team</li>
           </ul>
-          <button className="btn">Choose Plan</button>
+          <button className="btn" onClick={() => handleNavigation("This medium clicked")}>Choose Plan</button>
         </div>
 
-        <div className="card">
+        <div className="card" setPrice="Premium">
           <h2 className="card-title">Premium</h2>
           <div className="card-price">
             <span className="currency">$</span>
@@ -69,7 +72,7 @@ function Premium() {
             <li>EveryDay mentorship for goal</li>
             <li>24/7 Support from Team</li>
           </ul>
-          <button className="btn">Choose Plan</button>
+          <button className="btn" onClick={() => handleNavigation("This premium clicked")}>Choose Plan</button>
         </div>
       </section>
     </div>

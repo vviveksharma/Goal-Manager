@@ -6,7 +6,7 @@ const Contact = () => {
     <div>
       <Sidebar />
       <div className="contact">Contact Us</div>
-      <p>We would love to hear from you.</p>
+      <p className="contact-para">We would love to hear from you.</p>
       <div className="contact-form">
         <form>
           <input

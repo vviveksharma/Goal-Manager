@@ -17,18 +17,34 @@ const UserSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    age: {
+      type: String,
+      default: "18",
+    },
+    work: {
+      type: String,
+      default: "",
+    },
     contactNo: {
       type: String,
+      deafault: "",
       unique: true,
     },
-    profileImage: {
-      type: Image,
-      unique: false,
+    bio: {
+      type: String,
       default: "",
-    }
+    },
+    gender: {
+      type: String,
+      default: "male",
+    },
+    isPremium: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
 
 const User = mongoose.model("User", UserSchema);
-export default User
+export default User;

@@ -1,28 +1,66 @@
-.home {
-  padding-left: 170px;
-  padding-top: 350px;
-  padding-bottom: 450px;
+.display-container {
+  margin-top: 100px;
 }
 
-.home h2 {
-  font-size: 64px;
+.display {
+  display: flex;
+  flex-direction: row;
+  margin-top: 45px;
 }
 
-.home .display {
-  width: 135px;
+.display .span {
+  font-size: 90px;
+  padding-right: 50px;
+  padding-left: 150px;
+  font-weight: 500;
+}
+
+.display .logo {
+  padding-left: 10px;
+  font-weight: bolder;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  flex: 1;
+  margin-top: 10px;
+  margin-left: 125px;
+  font-size: 25px;
+  font-weight: lighter;
+}
+
+
+.image {
+  flex: 1;
+  text-align: center;
+}
+
+.image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 25px;
+}
+
+.home-button {
+  width: 50%;
   display: inline-block;
   padding: 10px 20px;
   background-color: black;
   color: #fff;
+  margin-top: 15px;
   margin-right: 5px;
   border: none;
-  border-radius: 50px;
+  border-radius: 20px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
 }
 
-.home button:hover {
+.home-button:hover {
   background-color: #0056b3;
 }

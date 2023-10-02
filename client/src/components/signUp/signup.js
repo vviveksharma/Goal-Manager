@@ -38,66 +38,81 @@ export const Signup = () => {
 
     setStrength(strengthLabels[strengthIndicator] ?? "");
   };
-  const handleRegister = async(e) => {
+
+  const handlePrevPage = () => {
+    navigate("/");
+  };
+
+  const handleRegister = async (e) => {
     e.preventDefault();
-    const response = await axios.post("http://localhost:8000/auth/register", data);
+    const response = await axios.post(
+      "http://localhost:8000/auth/register",
+      data
+    );
     console.log(response.data);
     setResponse(response.data);
     if (response.status === 200) {
       navigate("/login");
     }
   };
-  const handleChange =  (event) => {
+  const handleChange = (event) => {
     getStrength(event.target.value);
     setData({ ...data, [event.target.name]: event.target.value });
   };
 
   return (
-    <div className="register">
-      <div className="login-card">
-        <h2>Sign Up</h2>
-        <form className="login-form" onSubmit={handleRegister}>
-          <input
-            name="username"
-            spellCheck="false"
-            className="control"
-            type="text"
-            placeholder="UserName"
-            onChange={(e) =>
-              setData({ ...data, [e.target.name]: e.target.value })
-            }
-          />
-          <div className="username">
+    <div>
+      <button className="button-premium" onClick={handlePrevPage}>
+        Back
+      </button>
+      <div className="register">
+        <div className="login-card">
+          <h2>Sign Up</h2>
+          <form className="login-form" onSubmit={handleRegister}>
             <input
-              autoComplete="off"
+              name="username"
               spellCheck="false"
               className="control"
-              type="email"
-              name="email"
-              placeholder="Email"
+              type="text"
+              placeholder="UserName"
               onChange={(e) =>
                 setData({ ...data, [e.target.name]: e.target.value })
               }
             />
-            <div id="spinner" className="spinner"></div>
-          </div>
-          <input
-            name="password"
-            spellCheck="false"
-            className="control"
-            type="password"
-            placeholder="Password"
-            onChange={handleChange}
-          />
+            <div className="username">
+              <input
+                autoComplete="off"
+                spellCheck="false"
+                className="control"
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={(e) =>
+                  setData({ ...data, [e.target.name]: e.target.value })
+                }
+              />
+              <div id="spinner" className="spinner"></div>
+            </div>
+            <input
+              name="password"
+              spellCheck="false"
+              className="control"
+              type="password"
+              placeholder="Password"
+              onChange={handleChange}
+            />
 
-          <div className={`bars ${strength}`}>
-            <div></div>
-          </div>
-          <div className="strength">{strength && <>{strength} password</>}</div>
-          <button className="control" type="submit">
-            SIGN UP
-          </button>
-        </form>
+            <div className={`bars ${strength}`}>
+              <div></div>
+            </div>
+            <div className="strength">
+              {strength && <>{strength} password</>}
+            </div>
+            <button className="control" type="submit">
+              SIGN UP
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

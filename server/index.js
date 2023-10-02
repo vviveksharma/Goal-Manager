@@ -3,7 +3,8 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/users.js";
-import profileRoutes from "./routes/profiles.js"
+import profileRoutes from "./routes/profiles.js";
+import taskRoutes from "./routes/task.js";
 const app = express();
 app.use(cors());
 // parse application/x-www-form-urlencoded
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 // ROUTES
 app.use("/auth", userRoutes);
 app.use("/users", profileRoutes);
+app.use("/task", taskRoutes);
 
 mongoose
   .connect(process.env.MONGO_URL, {

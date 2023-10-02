@@ -1,3 +1,47 @@
 .display {
+    display: flex;
+    flex-direction: row;
+    margin-top: 45px;
+}
+
+.display .span {
+    font-size: 90px;
+    padding-right: 50px;
+    padding-left: 150px;
+    font-weight: 500;
+}
+
+.display .logo {
+    padding-left: 10px;
+    font-weight: bolder;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    flex: 1;
+    margin-top: 10px;
+    margin-left: 125px;
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+
+.image {
+    flex: 1;
     text-align: center;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+}
+
+.btn-display {
+    width: 25%;
+    margin-top: 100px;
 }
